@@ -1,0 +1,27 @@
+# Configure jinja2 defaults to make syntax highlighters happy
+_templates_suffix: .jinja
+_subdirectory: src
+_envops:
+  block_end_string: "%}"
+  block_start_string: "{%"
+  comment_end_string: "#}"
+  comment_start_string: "{#"
+  keep_trailing_newline: true
+  variable_end_string: "}}"
+  variable_start_string: "{{"
+
+package_name:
+  type: str
+  help: Package Name on pipy
+
+package_description:
+  type: str
+  help: Project description
+
+github_repo:
+  type: str
+  help: Name of github repository
+
+
+_skip_if_exists:
+  - pyproject.toml
