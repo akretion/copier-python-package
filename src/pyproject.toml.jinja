@@ -43,6 +43,10 @@ exclude = [
     "/.github",
 ]
 
+[tool.hatch.envs.test]
+features = [
+    "test"
+]
 
 [tool.ruff]
 target-version = "py{{ python_version[0].replace('.', '') }}"
