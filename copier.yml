@@ -22,6 +22,30 @@ github_repo:
   type: str
   help: Name of github repository
 
+python_version:
+  type: yaml
+  default: ["3.9", "3.10", "3.11", "3.12", "3.13", "3.14"]
+  help: List of python version to test
+
+author_name:
+  type: str
+  default: Akretion
+
+author_email:
+  type: str
+  default: contact@akretion.com
+
+development_status:
+  type: str
+  default: "5 - Production/Stable"
+
+licence:
+  choices:
+    - "GNU Affero General Public License v3"
+    - "BSD License"
+    - "MIT License"
+  default: "GNU Affero General Public License v3"
 
 _skip_if_exists:
   - pyproject.toml
+  - LICENCE.txt

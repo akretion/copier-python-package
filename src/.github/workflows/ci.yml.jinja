@@ -9,17 +9,17 @@ on:
 
 jobs:
   tests:
-    name: "Python ${{ matrix.python-version }}"
+    name: "Python {% raw %}${{ matrix.python-version }}{% endraw %}"
     runs-on: "ubuntu-latest"
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.11", "3.12"]
+        python-version: {{ python_version }}
     steps:
       - uses: "actions/checkout@v3"
       - uses: "actions/setup-python@v4"
         with:
-          python-version: "${{ matrix.python-version }}"
+          python-version: "{% raw %}${{ matrix.python-version }}{% endraw %}"
           allow-prereleases: true
       - name: "Install dependencies"
         run: |
@@ -27,7 +27,7 @@ jobs:
           python -VV
           python -m site
           python -m pip install .[test]
-      - name: "Run pytest targets for ${{ matrix.python-version }}"
+      - name: "Run pytest targets for {% raw %}${{ matrix.python-version }}{% endraw %}"
         run: |
           coverage run --source src -m pytest tests -v
           coverage xml
